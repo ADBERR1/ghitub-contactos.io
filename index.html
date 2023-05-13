@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+		body {
+			background-color: #000;
+			color: #0f0;
+			font-family: 'Courier New', monospace;
+			font-size: 18px;
+			text-align: center;
+			padding: 50px;
+		}
+
+		h1 {
+			font-size: 58px;
+			margin-top: 0;
+			text-shadow: 3px 3px 0 #0f0, 5px 5px 0 #f00, 7px 7px 0 #00f;
+		}
+
+		p {
+			margin-bottom: 20px;
+		}
+
+		a {
+			color: #0f0;
+			text-decoration: none;
+			border-bottom: 2px dotted #0f0;
+		}
+
+		a:hover {
+			color: #f00;
+			border-bottom: 2px dotted #f00;
+		}
+
+		@keyframes blink {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.blink {
+			animation: blink 1s infinite;
+		}
+	</style>
+    <body>
+   <h1>CONTACTOS REGEDITS</h1>
+<div style="margin-top: 50px;">
+</head>
+   
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: monospace;
+		}
+		.options {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		.option {
+			margin: 10px;
+			padding: 20px;
+			border: 2px solid white;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+		}
+		.option:hover .loader {
+			animation: loader-rotate 2s linear infinite;
+		}
+		.option img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+		.loader {
+			position: absolute;
+			top: -100%;
+			left: -100%;
+			right: -100%;
+			bottom: -100%;
+			background-color: rgba(255,255,255,0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+		}
+		.option.active .loader {
+			opacity: 1;
+		}
+		@keyframes loader-rotate {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(360deg);}
+		}
+	</style>
+</head>
+<body>
+	<div class="options">
+		<div class="option" data-link="https://wa.me/123456789">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+			<div class="loader"></div>
+		</div>
+		<span>WHATSAPP</span>
+		<p>Programador de sitios web</p>
+		<div class="option" data-link="https://www.instagram.com/miusuario/">
+			<img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png">
+			<div class="loader"></div>
+		</div>
+		<span>INSTAGRAM</span>
+		<p>Programador de sitios web</p>
+		<div class="option" data-link="https://www.youtube.com/">
+			<img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg">
+			<div class="loader"></div>
+		</div>
+		<span>YOUTUBE</span>
+		<p>Programador de sitios web</p>
+	</div>
+	
+
+	<script>
+		// Agregar evento de clic a cada opción
+		document.querySelectorAll('.option').forEach(option => {
+			option.addEventListener('click', function() {
+				// Activar efecto de carga
+				this.classList.add('active');
+				// Redireccionar a la URL especificada en el atributo data-link después de 2 segundos
+				setTimeout(() => {
+					window.location.href = this.getAttribute('data-link');
+				}, 2000);
+			});
+		});
+	</script>
+</body>
+</html>
+</html>
