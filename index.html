@@ -178,6 +178,47 @@ data-link="https://www.facebook.com/profile.php?id=100035131128511&mibextid=ZbWK
 	
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2639866587135487"
      crossorigin="anonymous"></script>
+
+	<p>Total de visitas: <span id="visitCount"></span></p>
+
+ <script src="contador.js"></script>
+    
+    <script document.addEventListener("DOMContentLoaded", function() {
+    fetch("contador.php")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("visitCount").textContent = data;
+        })
+        .catch(error => {
+            console.error("Error al obtener el contador de visitas: " + error);
+        });
+});
+ </script>
+    
+    <?php
+$counterFile = "contador.txt";
+
+// Verifica si el archivo de contador existe
+if (file_exists($counterFile)) {
+    // Lee el valor actual del contador
+    $count = file_get_contents($counterFile);
+
+    // Incrementa el contador
+    $count++;
+
+    // Escribe el nuevo valor en el archivo
+    file_put_contents($counterFile, $count);
+
+    // Devuelve el valor del contador
+    echo $count;
+} else {
+    // Si el archivo no existe, crea uno y establece el contador en 1
+    file_put_contents($counterFile, 1);
+
+    // Devuelve 1 como el valor inicial del contador
+    echo "1";
+}
+?>
 </body>
 </html>
 </html>
