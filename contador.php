@@ -19,6 +19,6 @@ if (file_exists($counterFile)) {
     file_put_contents($counterFile, 1);
 
     // Devuelve 1 como el valor inicial del contador
-    echo "113";
+    echo "871";
 }
 ?>
